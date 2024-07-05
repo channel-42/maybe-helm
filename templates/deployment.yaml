@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "maybe.fullname" . }}
+  labels:
+    {{- include "maybe.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "maybe.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "maybe.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "maybe.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: maybe
+        image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.containerSecurityContext | nindent 10 }}
+        resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        ports:
+        - name: http
+          containerPort: 3000
+        env:
+        - name: SELF_HOSTING_ENABLED
+          value: "{{ .Values.env.selfHostingEnabled }}"
+        - name: RAILS_FORCE_SSL
+          value: "{{ .Values.env.railsForceSsl }}"
+        - name: RAILS_ASSUME_SSL
+          value: "{{ .Values.env.railsAssumeSsl }}"
+        - name: GOOD_JOB_EXECUTION_MODE
+          value: "{{ .Values.env.goodJobExecutionMode }}"
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: maybe
+              key: maybe-secret-key-base
+        - name: DB_HOST
+          value: "{{ .Release.Name }}-postgresql"
+        - name: POSTGRES_DB
+          value: {{ .Values.postgresql.auth.database }}
+        - name: POSTGRES_USER
+          value: {{ .Values.postgresql.auth.username }}
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: maybe
+              key: password
+        volumeMounts:
+        - name: storage
+          mountPath: /rails/storage
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-storage
+
