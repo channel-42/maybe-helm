@@ -2,7 +2,7 @@ apiVersion: v2
 name: maybe
 description: A fullyopen-source OS for your personal finances
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "0.1.0-alpha.8"
 dependencies:
   - name: postgresql

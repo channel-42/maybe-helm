@@ -9,6 +9,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+persistence:
+  pvc:
+    size: 2Gi
+
 env:
   selfHostingEnabled: true
   railsForceSsl: false
