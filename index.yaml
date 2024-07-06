@@ -3,6 +3,20 @@ entries:
   maybe:
   - apiVersion: v2
     appVersion: 0.1.0-alpha.9
+    created: "2024-07-06T12:58:16.378256984Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.14
+    description: A fullyopen-source OS for your personal finances
+    digest: af281ba163a70fa4e43ad9a337c28c7d7bdd51afec3cab6f789e0785ef7507b9
+    name: maybe
+    type: application
+    urls:
+    - https://github.com/channel-42/maybe-helm/releases/download/maybe-0.1.4/maybe-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0-alpha.9
     created: "2024-07-06T12:50:57.644664305Z"
     dependencies:
     - name: postgresql
@@ -57,4 +71,4 @@ entries:
     urls:
     - https://github.com/channel-42/maybe-helm/releases/download/maybe-0.1.0/maybe-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-06T12:50:57.64467769Z"
+generated: "2024-07-06T12:58:16.378283894Z"
