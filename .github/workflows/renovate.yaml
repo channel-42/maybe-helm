@@ -22,3 +22,5 @@ jobs:
         with:
           configurationFile: ./.github/configs/renovate.json
           token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          RENOVATE_AUTODISCOVER: true
