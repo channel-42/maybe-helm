@@ -9,7 +9,7 @@ jobs:
   renovate:
     permissions:
       contents: read
-      issues: read
+      issues: write
       pull-requests: write
       repository-projects: read
       statuses: read
