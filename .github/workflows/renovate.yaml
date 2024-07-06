@@ -24,3 +24,4 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           RENOVATE_AUTODISCOVER: true
+          RENOVATE_AUTODISCOVER_FILTER: "channel-42/maybe-helm"
