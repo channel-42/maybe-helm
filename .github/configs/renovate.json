@@ -11,5 +11,11 @@
     "dependencies"
   ],
   "automergeStrategy": "merge-commit",
-  "prHourlyLimit": 2
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "matchRepositories": ["channel-42/maybe-helm"],
+      "enabled": true
+    }
+  ]
 }
