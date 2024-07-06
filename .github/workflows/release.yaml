@@ -40,8 +40,8 @@ jobs:
 
       - name: Check for changes
         run: |
-          changed=$(ls .cr-release-packages | wc -l | xargs)
-          if [[ "$changed" -ne "0" ]]; then
+          changed=$(ls .cr-release-packages)
+          if [[ -n "$changed" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
