@@ -25,4 +25,3 @@ jobs:
         env:
           RENOVATE_AUTODISCOVER: true
           RENOVATE_AUTODISCOVER_FILTER: "channel-42/maybe-helm"
-          LOG_LEVEL: debug
