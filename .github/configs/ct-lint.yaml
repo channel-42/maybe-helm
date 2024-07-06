@@ -2,9 +2,7 @@
 remote: origin
 target-branch: main
 chart-dirs:
-  - ./
-chart-repos:
-  - maybe-helm=ghcr.io/channel-42/maybe-helm
+  - ./chart
 check-version-increment: false
 validate-maintainers: false
 exclude-deprecated: true
