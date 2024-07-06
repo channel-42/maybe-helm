@@ -2,9 +2,9 @@ apiVersion: v2
 name: maybe
 description: A fullyopen-source OS for your personal finances
 type: application
-version: 0.1.2
-appVersion: "0.1.0-alpha.8"
+version: 0.1.3
+appVersion: "0.1.0-alpha.9"
 dependencies:
   - name: postgresql
-    version: "15.5.13"
+    version: "15.5.14"
     repository: "https://charts.bitnami.com/bitnami"
