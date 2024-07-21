@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "ignoreUnstable": false,
   "regexManagers": [
     {
       "fileMatch": ["(^|/)Chart\\.yaml$"],
@@ -7,8 +8,7 @@
         "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver-coerced",
-      "ignoreUnstable": false
+      "versioningTemplate": "semver-coerced"
     }
   ]
 }
