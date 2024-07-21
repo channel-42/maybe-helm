@@ -1,14 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "ignoreUnstable": false,
   "regexManagers": [
     {
       "fileMatch": ["(^|/)Chart\\.yaml$"],
       "matchStrings": [
-        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)"
+        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>\\d+\\.\\d+\\.\\d+(?:-alpha\\.\\d+)?)\\\"?"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver-coerced"
+      "versioningTemplate": "semver"
     }
   ]
 }
