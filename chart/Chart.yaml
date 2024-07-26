@@ -4,7 +4,7 @@ description: A fullyopen-source OS for your personal finances
 type: application
 version: 0.1.8
 # renovate: image=ghcr.io/maybe-finance/maybe
-appVersion: "0.1.0-alpha.11"
+appVersion: "0.1.0-alpha.12"
 dependencies:
   - name: postgresql
     version: "15.5.17"
