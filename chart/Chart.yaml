@@ -2,7 +2,7 @@ apiVersion: v2
 name: maybe
 description: A fullyopen-source OS for your personal finances
 type: application
-version: 0.1.9
+version: 0.1.10
 # renovate: image=ghcr.io/maybe-finance/maybe
 appVersion: "0.1.0-alpha.13"
 dependencies:
